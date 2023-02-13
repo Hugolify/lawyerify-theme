@@ -1,0 +1,3 @@
+{{ range .GetTerms "statutes" }}
+  <p class="status" itemprop="jobTitle">{{ .Params.title_singular | default .Title }}</p>
+{{ end }}

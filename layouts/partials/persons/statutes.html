@@ -1,0 +1,3 @@
+{{ range .GetTerms "statutes" }}
+  <p class="surtitle">{{ .Params.title_singular | default .Title }}</p>
+{{ end }}

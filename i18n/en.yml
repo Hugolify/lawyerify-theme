@@ -1,0 +1,20 @@
+credit:
+  hugolify: a low impact website crafted with <a href="https://www.lawyerify.io" target="_blank">Lawyerify</a>
+expertises:
+  all: All the firm’s expertise
+  discover_persons: Our {{ .Title }} experts
+offices:
+  all: All offices
+  discover: Discover the office
+  discover_persons: The office team
+  title:
+    one: Office
+    other: Offices
+persons:
+  all: Everyone in the firm
+  discover_occupation: 
+    consonant: Discover the {{ .Occupation }}
+    vowel: Discover the {{ .Occupation }}
+publications:
+  all: All the firm's publications
+with: With {{ .Persons }}
