@@ -5,8 +5,10 @@ expertises:
   discover_persons: Nos experts en {{ .Title }}
 offices:
   all: Tous les cabinets
+  latest: Derniers cabinets
   discover: Découvrez le cabinet
   discover_persons: L’équipe du cabinet
+  more: Découvrir plus de cabinets
   title:
     one: Cabinet
     other: Cabinets

@@ -3,13 +3,6 @@ credit:
 expertises:
   all: All the firm’s expertise
   discover_persons: Our {{ .Title }} experts
-offices:
-  all: All offices
-  discover: Discover the office
-  discover_persons: The office team
-  title:
-    one: Office
-    other: Offices
 persons:
   all: Everyone in the firm
   discover_occupation: 
