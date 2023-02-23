@@ -1,5 +1,5 @@
 credit:
-  hugolify: a low impact website crafted with <a href="https://www.lawyerify.io" target="_blank">Lawyerify</a>
+  hugolify: a low impact website crafted with <a href="https://www.lawyerify.io" target="_blank" rel="noopener noreferrer" title="« Lawyerify » - lien externe">Lawyerify</a>
 expertises:
   all: All the firm’s expertise
   discover_persons: Our {{ .Title }} experts
