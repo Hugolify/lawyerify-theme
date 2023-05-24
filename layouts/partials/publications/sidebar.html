@@ -1,6 +1,6 @@
-<div class="sidebar"{{ partial "func/SetAnim" (dict "element" "sidebar") }}>
-  {{ $concerned := "publications/concerned.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $concerned ) }}
+{{ $concerned := "publications/concerned.html" }}
+{{ if templates.Exists ( printf "partials/%s" $concerned ) }}
+  <div class="sidebar"{{ partial "func/SetAnim" (dict "element" "sidebar") }}>
     {{ partial $concerned . }}
-  {{ end }}
-</div>
+  </div>
+{{ end }}
