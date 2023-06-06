@@ -12,6 +12,10 @@ offices:
   title:
     one: Cabinet
     other: Cabinets
+persons_offices:
+  title:
+    one: Cabinet
+    other: Cabinets
 persons:
   all: Toutes les personnes du cabinet
   discover_occupation: 
