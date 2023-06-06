@@ -2,8 +2,8 @@
   {{ partial "publications/item/press" . }}
   {{ partial "publications/item/metas" . }}
   {{ partial "commons/item/title" . }}
-  {{ $concerned := "publications/item/concerned.html" }}
-  {{ if templates.Exists ( printf "partials/%s" $concerned ) }}
-    {{ partial $concerned . }}
+  {{ $publications_concerned := "publications/item/publications_concerned.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $publications_concerned ) }}
+    {{ partial $publications_concerned . }}
   {{ end }}
 </a>
