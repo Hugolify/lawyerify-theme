@@ -3,7 +3,16 @@ credit:
 expertises:
   all: Toutes les expertises du cabinet
   discover_persons: Nos experts en {{ .Title }}
-offices:
+persons:
+  all: Toutes les personnes du cabinet
+  discover_occupation: 
+    consonant: Découvir le {{ .Occupation }}
+    vowel: Découvir l’{{ .Occupation }}
+persons_places:
+  title:
+    one: Cabinet
+    other: Cabinets
+places:
   all: Tous les cabinets
   latest: Derniers cabinets
   discover: Découvrez le cabinet
@@ -12,15 +21,6 @@ offices:
   title:
     one: Cabinet
     other: Cabinets
-persons_offices:
-  title:
-    one: Cabinet
-    other: Cabinets
-persons:
-  all: Toutes les personnes du cabinet
-  discover_occupation: 
-    consonant: Découvir le {{ .Occupation }}
-    vowel: Découvir l’{{ .Occupation }}
 publications:
   all: Toutes les parutions du cabinet
 with: Avec {{ .Persons }}

@@ -1,6 +1,6 @@
 {{ $pages := partial "func/GetTaxonomyPageBySlug" (dict 
   "section" "persons"
-  "taxonomy" "persons_offices"
+  "taxonomy" "persons_places"
   "slug" .File.BaseFileName) }}
 
 {{ if $pages }}
@@ -40,8 +40,8 @@
   {{ if partial "func/HasImageHero" . }}
     {{ $atf = false }}
   {{ end }}
-  <section class="offices-persons">
-    <h2>{{ i18n "offices.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
+  <section class="places-persons">
+    <h2>{{ i18n "places.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
     {{ partial "persons/items" (dict "pages" $paginator "abovethefold" $atf) }}
   </section>
 

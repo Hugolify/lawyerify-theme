@@ -8,6 +8,19 @@ persons:
   discover_occupation: 
     consonant: Discover the {{ .Occupation }}
     vowel: Discover the {{ .Occupation }}
+persons_places:
+  title:
+    one: Office
+    other: Offices
+places:
+  all: All offices
+  latest: Latest offices
+  discover: Discover the office
+  discover_persons: The office team
+  more: Discover more offices
+  title:
+    one: Office
+    other: Offices
 publications:
   all: All the firm's publications
 with: With {{ .Persons }}
