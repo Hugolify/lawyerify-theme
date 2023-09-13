@@ -1,37 +1,7 @@
-{{ $paginator := slice }}
-
-{{/* Sort by status */}}
-{{ if .Site.GetPage "section" "persons_statutes" }}
-  {{/* Create slice of maps, where each map contains the page and term weight. */}}
-  {{ $taxonomy := "persons_statutes" }}
-  {{ $s := slice }}
-  {{ range .Pages }}
-    {{ $termWeight := 99999999 }}
-    {{ with (index (.GetTerms $taxonomy) 0).Weight }}
-      {{ $termWeight = . }}
-    {{ end }}
-    {{ $s = $s | append (dict
-        "page" .
-        "termWeight" $termWeight
-      )
-    }}
-  {{ end }}
-
-  {{/* Create a slice of pages, sorted by the term weight. */}}
-  {{ $p := slice }}
-  {{ range (sort $s "termWeight") }}
-    {{ $p = $p | append .page }}
-  {{ end }}
-
-  {{/* Render the page collection. */}}
-  {{ $paginator = (.Paginate $p).Pages }}
-{{ else }}
-  {{ $paginator = .Paginator.Pages }}
-{{ end }}
-
+{{ $pages := partial "func/GetPersonsOrderByStatutes" . }}
 {{ $atf := true }}
 {{ if partial "func/HasImageHero" . }}
   {{ $atf = false }}
 {{ end }}
-{{ partial "persons/items" (dict "pages" $paginator "abovethefold" $atf) }}
+{{ partial "persons/items" (dict "pages" $pages "abovethefold" $atf) }}
 {{ partial "nav/pagination.html" . }}
