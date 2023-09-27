@@ -1,0 +1,10 @@
+<div class="offer">
+  {{ partial "realestates/reference" . }}
+  {{ $realestates_types := "realestates/realestates_types.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $realestates_types ) }}
+    {{ partial $realestates_types . }}
+  {{ end }}
+  {{ partial "realestates/pricing_sold" . }}
+  {{ partial "realestates/pricing" . }}
+  {{ partial "realestates/address" . }}
+</div>

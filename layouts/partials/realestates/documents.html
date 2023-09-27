@@ -1,0 +1,15 @@
+{{ with .Params.documents }}
+  {{ $len := . | len }}
+  <section class="properties_documents">
+    <h2>{{ i18n "document" $len }}</h2>
+    <ul class="documents">
+      {{ range . }}
+        <li>
+          <a href="{{ .file }}" download target="_blank">
+            {{- partial "func/PrepareHTML" .title -}}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

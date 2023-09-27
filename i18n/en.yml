@@ -23,4 +23,7 @@ places:
     other: Offices
 publications:
   all: All the firm's publications
+realestates:
+  adjudged_with_value: "Sold at {{ .Value }}"
+  pricing_with_value: "Pricing: {{ .Value }}"
 with: With {{ .Persons }}

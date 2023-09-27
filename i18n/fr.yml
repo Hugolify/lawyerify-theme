@@ -23,4 +23,15 @@ places:
     other: Cabinets
 publications:
   all: Toutes les parutions du cabinet
+realestates:
+  adjudged_with_value: "Adjugé à {{ .Value }}"
+  pricing_with_value: "Mise à prix : {{ .Value }}"
+realestates_persons:
+  all: Toutes les personnes en charge
+  discover: Découvrir la personne en charge de ce dossier
+  latest: Derniers personnes en charge
+  more: Découvrir plus de personnes en charge
+  title:
+    one: Personne en charge
+    other: Personnes en charge
 with: Avec {{ .Persons }}

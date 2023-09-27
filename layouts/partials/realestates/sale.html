@@ -1,0 +1,29 @@
+{{ with .Params.offer }}
+  {{ if or .date_sale .realestates_sellers }}
+    <div class="sale">
+      <h2>{{ i18n "realestates.sale" 1 }}</h3>
+      <div>
+        {{ with .date_sale }}
+          {{ $date := time . }}
+          <p>{{ $date | time.Format ":date_full" }}</time></p>
+          <p>{{ i18n "to" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
+        {{ end }}
+        {{ with .realestates_sellers }}
+          {{ $page := index (where site.Pages "Title" "eq" .) 0 }}
+          {{ with $page }}
+          <div class="seller">
+            <p><strong>{{ .Title }}</strong></p>
+            {{ with .Params.address }}
+              <address>
+                {{ .street }}<br/>
+                {{ .zipcode }} {{ .city }}<br/>
+                {{ .country }}
+              </address>
+            {{ end }}
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
