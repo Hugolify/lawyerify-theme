@@ -34,4 +34,12 @@ realestates_persons:
   title:
     one: Personne en charge
     other: Personnes en charge
+realestates_sellers:
+  all: Tous les types de vente
+  discover: Découvrir type de vente
+  latest: Derniers types de vente
+  more: Découvrir plus types de vente
+  title:
+    one: Type de vente
+    other: Types de vente
 with: Avec {{ .Persons }}

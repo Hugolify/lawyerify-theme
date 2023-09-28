@@ -26,4 +26,20 @@ publications:
 realestates:
   adjudged_with_value: "Sold at {{ .Value }}"
   pricing_with_value: "Pricing: {{ .Value }}"
+realestates_persons:
+  all: All persons in charge
+  discover: Discover the person in charge
+  latest: Latest persons in charge
+  more: Discover more persons in charge
+  title:
+    one: Person in charge
+    other: Persons in charge
+realestates_sellers:
+  all: All types of sales
+  discover: Discover the type of sale
+  latest: Latest types of sales
+  more: Discover more types of sales
+  title:
+    one: Type of sale
+    other: Types of sales
 with: With {{ .Persons }}
