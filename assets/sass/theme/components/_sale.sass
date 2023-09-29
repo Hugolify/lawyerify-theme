@@ -17,3 +17,12 @@
             margin-bottom: 0
         address
             font-size: $small-font-size
+    
+    .direction
+        &:hover
+            text-decoration: underline
+
+        @if variable-exists(bootstrap-icons-map)
+            &::before
+                @include icon("arrow-right")
+                margin-right: .5em

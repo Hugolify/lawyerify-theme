@@ -1,7 +1,8 @@
 {{ with .Params.documents }}
   {{ $len := . | len }}
-  <section class="properties_documents">
-    <h2>{{ i18n "document" $len }}</h2>
+  {{ $document := i18n "document" $len }}
+  <section class="properties_documents" id="{{ $document | urlize }}">
+    <h2>{{ $document }}</h2>
     <ul class="documents">
       {{ range . }}
         <li>

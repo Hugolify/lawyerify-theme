@@ -1,0 +1,11 @@
+{{ with .Params.gallery }}
+  {{ $len := . | len }}
+  {{ $gallery := i18n "gallery" $len }}
+  {{ $ratio := .7 }}
+  {{ if gt $len 0 }}
+    <section class="properties_gallery" id="{{ $gallery | urlize }}">
+      <h2>{{ $gallery }}</h2>
+      {{ partial "commons/gallery" (dict "images" . "ratio" $ratio) }}
+    </section>
+  {{ end }}
+{{ end }}

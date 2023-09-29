@@ -32,3 +32,19 @@
         margin-top: $spacer
         > div
             padding: 0
+        &:not(:last-child)
+            margin-bottom: $spacer
+    .see_location,
+    .see_documents,
+    .see_images
+        font-size: $small-font-size
+        margin-bottom: 0
+        a
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+
+            @if variable-exists(bootstrap-icons-map)
+                &::before
+                    @include icon("arrow-right")
+                    margin-right: .5em

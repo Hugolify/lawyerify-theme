@@ -7,4 +7,25 @@
   {{ partial "realestates/pricing_sold" . }}
   {{ partial "realestates/pricing" . }}
   {{ partial "realestates/address" . }}
+  {{ with .Params.address }}
+    {{ if or .location (and .lat .long) }}
+      {{ $location := i18n "realestates.location" | urlize }}
+      <p class="see_location"><a href="#{{ $location }}">{{ i18n "realestates.location" }}</a></p>
+    {{ end }}
+  {{ end }}
+  {{ with .Params.documents }}
+    {{ $len := . | len }}
+    {{ $document := i18n "document" (. | len) | urlize }}
+    {{ if gt $len 0 }}
+      <p class="see_documents"><a href="#{{ $document }}">{{ i18n "document" (. | len) }}</a></p>
+    {{ end }}
+  {{ end }}
+  {{ with .Params.gallery }}
+    {{ $len := . | len }}
+    {{ $gallery := i18n "gallery" (. | len) | urlize }}
+    {{ if gt $len 0 }}
+      <p class="see_images"><a href="#{{ $gallery }}">{{ i18n "gallery" (. | len) }}</a></p>
+    {{ end }}
+  {{ end }}
+
 </div>

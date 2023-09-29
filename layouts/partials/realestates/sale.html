@@ -1,5 +1,6 @@
+{{ $sellers := .Params.realestates_sellers }}
 {{ with .Params.offer }}
-  {{ if or .date_sale .realestates_sellers }}
+  {{ if or .date_sale $sellers }}
     <div class="sale">
       <h2>{{ i18n "realestates.sale" 1 }}</h3>
       <div>
@@ -8,7 +9,7 @@
           <p>{{ $date | time.Format ":date_full" }}</time></p>
           <p>{{ i18n "to" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
         {{ end }}
-        {{ with .realestates_sellers }}
+        {{ with $sellers }}
           {{ $page := index (where site.Pages "Title" "eq" .) 0 }}
           {{ with $page }}
           <div class="seller">
@@ -17,7 +18,8 @@
               <address>
                 {{ .street }}<br/>
                 {{ .zipcode }} {{ .city }}<br/>
-                {{ .country }}
+                {{ .country }}<br>
+                <a class="direction" href="https://www.google.fr/maps/dir//{{ .street }} {{ .zipcode }} {{ .city }} {{ .country }}" target="_blank">{{ i18n "address.direction" }}</a>
               </address>
             {{ end }}
           </div>
