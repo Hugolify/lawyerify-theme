@@ -1,4 +1,4 @@
-{{ $sellers := .Params.realestates_sellers }}
+{{- $sellers := .Params.realestates_sellers -}}
 {{ with .Params.offer }}
   {{ if or .date_sale $sellers }}
     <div class="sale">

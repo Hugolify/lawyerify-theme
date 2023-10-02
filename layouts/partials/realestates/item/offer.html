@@ -1,5 +1,5 @@
-{{ $context := . }}
-<div class="offers">
+{{- $context := . -}}
+<div class="offer">
   {{ partial "realestates/item/reference" $context }}
   {{ with .Params.offer }}
     {{ if not .sold }}
