@@ -1,0 +1,5 @@
+{{ with .Params.offer }}
+  {{ if .sold }}
+    <p class="status">{{ i18n "realestates.sold" 1 }}</p>
+  {{ end }}
+{{ end }}

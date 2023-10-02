@@ -1,5 +1,7 @@
-{{ with .Params.offer.price }}
-  {{ $currency := $.Site.Params.currency | default "EUR" }}
-  {{ $price := . | lang.FormatCurrency 2 $currency }}
-  <p class="pricing">{{ i18n "realestates.pricing_with_value" (dict "Value" $price) }}</p>
+{{ with .Params.offer }}
+  {{ with .price }}
+    {{ $currency := $.Site.Params.currency | default "EUR" }}
+    {{ $price := . | lang.FormatCurrency 2 $currency }}
+    <p class="pricing">{{ i18n "realestates.pricing_with_value" (dict "Value" $price) }}</p>
+  {{ end }}
 {{ end }}
