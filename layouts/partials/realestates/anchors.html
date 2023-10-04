@@ -1,5 +1,5 @@
 {{ with .Params.address }}
-  {{ if or .location (and .lat .long) }}
+  {{ if or .location .coordinates }}
     {{ $location := i18n "realestates.location" | urlize }}
     <p class="see_location"><a href="#{{ $location }}">{{ i18n "realestates.location" }}</a></p>
   {{ end }}
