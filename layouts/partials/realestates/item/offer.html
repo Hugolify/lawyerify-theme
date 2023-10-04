@@ -2,10 +2,12 @@
 <div class="offer">
   {{ partial "realestates/item/reference" $context }}
   {{ with .Params.offer }}
-    {{ if not .sold }}
-      {{ partial "realestates/item/pricing" $context }}
-    {{ else }}
-      {{ partial "realestates/item/pricing_sold" $context }}
-    {{ end }}
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      {{ if not .sold }}
+        {{ partial "realestates/item/pricing" $context }}
+      {{ else }}
+        {{ partial "realestates/item/pricing_sold" $context }}
+      {{ end }}
+    </div>
   {{ end }}
 </div>
