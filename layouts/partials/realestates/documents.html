@@ -3,14 +3,6 @@
   {{- $document := i18n "document" $len -}}
   <section class="properties_documents" id="{{ $document | urlize }}">
     <h2>{{ $document }}</h2>
-    <ul class="documents">
-      {{ range . }}
-        <li>
-          <a href="{{ .file }}" download target="_blank">
-            {{- partial "func/PrepareHTML" .title -}}
-          </a>
-        </li>
-      {{ end }}
-    </ul>
+    {{ partial "commons/files" . }}
   </section>
 {{ end }}
