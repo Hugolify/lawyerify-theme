@@ -1,3 +1,4 @@
+<!-- Order people by status importance -->
 {{ $persons := slice }}
 {{ range .GetTerms "publications_concerned" }}
   {{ $persons = $persons | append (partial "func/GetRealPerson" .) }}
@@ -5,5 +6,9 @@
 
 {{ $pages := partial "func/GetPersonsOrderByStatutes" $persons }}
 {{ range $pages }}
-  {{ partial "commons/person" (dict "person" . "item" "publications_concerned" "section" "publications_concerned") }}
+  {{ partial "commons/person" (dict 
+    "person" . 
+    "show_btn" false 
+    ) }}
 {{ end }}
+
