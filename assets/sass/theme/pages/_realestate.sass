@@ -1,85 +1,60 @@
 .page-realestates
 
-    .offer
-        background-color: $light
-        border-radius: $card-border-radius
-        padding: $card-spacer-y $card-spacer-x
+    .sidebar
+        .offer
+            background-color: $light
+            border-radius: $card-border-radius
+            padding: $card-spacer-y $card-spacer-x
 
-        @include media-breakpoint-up(lg)
-            position: sticky
-            top: $offset
-            z-index: 1
-            @media (prefers-reduced-motion: no-preference)
-                transition: top .3s ease
-            html.is-scrolling-down &
-                top: 1rem
+            @include media-breakpoint-up(lg)
+                position: sticky
+                top: $offset
+                z-index: 1
+                @media (prefers-reduced-motion: no-preference)
+                    transition: top .3s ease
+                html.is-scrolling-down &
+                    top: 1rem
 
-        .reference,
-        address
-            color: $text-muted
-            font-size: $small-font-size
-        .realestates_types
-            font-size: $small-font-size
-        .reference
-            float: right
-            margin-bottom: 0
-        .pricing
-            font-size: 1.25rem
-            font-weight: $font-weight-bold
-            margin-bottom: 0
-        .pricing + .pricing
-            font-size: $small-font-size
-            font-weight: $font-weight-normal
-        address
-            margin-top: $spacer
-            > div
-                padding: 0
-            &:not(:last-child)
-                margin-bottom: $spacer
-        .see_location,
-        .see_documents,
-        .see_images
-            font-size: $small-font-size
-            margin-bottom: 0
-            a
-                text-decoration: none
-                &:hover
-                    text-decoration: underline
+            .reference,
+            address
+                color: $text-muted
+                font-size: $small-font-size
+            .realestates_types
+                font-size: $small-font-size
+            .reference
+                float: right
+                margin-bottom: 0
+            .pricing
+                font-size: 1.25rem
+                font-weight: $font-weight-bold
+                margin-bottom: 0
+            .pricing + .pricing
+                font-size: $small-font-size
+                font-weight: $font-weight-normal
+            address
+                margin-top: $spacer
+                > div
+                    padding: 0
+                &:not(:last-child)
+                    margin-bottom: $spacer
+            .see_location,
+            .see_documents,
+            .see_images
+                font-size: $small-font-size
+                margin-bottom: 0
+                a
+                    text-decoration: none
+                    &:hover
+                        text-decoration: underline
 
-                @if variable-exists(bootstrap-icons-map)
-                    &::before
-                        @include icon("arrow-right")
-                        margin-right: .5em
+                    @if variable-exists(bootstrap-icons-map)
+                        &::before
+                            @include icon("arrow-right")
+                            margin-right: .5em
     
-    .person 
-        .media
-            --bs-aspect-ratio: 100%
-            border-radius: 50%
-            margin-left: var(--bs-card-spacer-x)
-            margin-top: var(--bs-card-spacer-y)
-            width: 100px
-        a::after
-            content: none
-        ul
-            font-size: $small-font-size
-            list-style: none
-            line-height: 1.8
-            padding-left: 0
-            margin-bottom: 1.5rem
-            margin-top: 1.5rem
-            @if variable-exists(bootstrap-icons-map)
-                b
-                    display: none
-                .email
-                    &::before
-                        @include icon("envelope")
-                        margin-right: .5em
-                .phone
-                    &::before
-                        @include icon("phone")
-                        margin-right: .5em
-        .btn
-            @extend .btn-primary
+    .contact
+        .person 
+            position: static
 
     @include media-breakpoint-down(md)
         .grid > 
