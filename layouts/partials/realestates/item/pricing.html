@@ -1,5 +1,5 @@
 <meta itemprop="availability" content="https://schema.org/InStock">
-{{ with .Params.offer }}
+{{ with . }}
   {{ with .price }}
     {{ $currency := $.Site.Params.currency | default "EUR" }}
     {{ $price := . | lang.FormatCurrency 2 $currency }}

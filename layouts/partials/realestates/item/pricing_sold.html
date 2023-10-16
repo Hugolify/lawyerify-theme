@@ -1,6 +1,6 @@
 <meta itemprop="availability" content="https://schema.org/OutOfStock">
 {{ $currency := $.Site.Params.currency | default "EUR" }}
-{{ with .Params.offer }}
+{{ with . }}
   {{ with .price_sold }}
     {{ $currency := $.Site.Params.currency | default "EUR" }}
     {{ $price := . | lang.FormatCurrency 2 $currency }}
