@@ -2,7 +2,7 @@
 {{ with . }}
   {{ with .price }}
     {{ $currency := $.Site.Params.currency | default "EUR" }}
-    {{ $price := . | lang.FormatCurrency 2 $currency }}
+    {{ $price := partial "func/GetHumanPrice" . }}
     <p class="pricing" itemprop="price" content="{{ . }}">{{ i18n "realestates.pricing_with_value" (dict "Value" $price) }}</p>
     <meta itemprop="priceCurrency" content="{{ $currency }}">
   {{ end }}
