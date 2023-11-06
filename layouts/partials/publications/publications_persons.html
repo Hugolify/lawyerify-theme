@@ -1,8 +1,13 @@
 <!-- Order people by status importance -->
 {{ $persons := slice }}
+{{ range .GetTerms "publications_persons" }}
+  {{ $persons = $persons | append (partial "func/GetRealPerson" .) }}
+{{ end }}
+<!-- LEGACY -->
 {{ range .GetTerms "publications_concerned" }}
   {{ $persons = $persons | append (partial "func/GetRealPerson" .) }}
 {{ end }}
+<!-- / LEGACY -->
 
 {{ $pages := partial "func/GetPersonsOrderByStatutes" $persons }}
 {{ range $pages }}
