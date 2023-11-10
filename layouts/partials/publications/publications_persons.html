@@ -1,19 +1,34 @@
-<!-- Order people by status importance -->
+{{- $pages := slice -}}
+
+<!-- Get persons -->
 {{ $persons := slice }}
 {{ range .GetTerms "publications_persons" }}
-  {{ $persons = $persons | append (partial "func/GetRealPerson" .) }}
+  {{ $persons = $persons | append . }}
 {{ end }}
 <!-- LEGACY -->
 {{ range .GetTerms "publications_concerned" }}
-  {{ $persons = $persons | append (partial "func/GetRealPerson" .) }}
+  {{ $persons = $persons | append . }}
 {{ end }}
 <!-- / LEGACY -->
+{{- $pages = $persons -}}
 
-{{ $pages := partial "func/GetPersonsOrderByStatutes" $persons }}
+<!-- Order people by status importance if more 1 people -->
+{{- if gt $persons 1 -}}
+  {{ $realPersons := slice }}
+  {{ range $persons }}
+    {{ $realPersons = $realPersons | append (partial "func/GetRealPerson" .) }}
+  {{ end }}
+  {{- $pages = slice -}}
+  {{- range partial "func/GetPersonsOrderByStatutes" $realPersons -}}
+    <!-- Reset with section to keep context -->
+    {{- $pages = $pages | append (site.GetPage (printf "/publications_persons/%s" .File.BaseFileName)) -}}
+  {{- end -}}
+{{- end -}}
+
+<!-- Display persons -->
 {{ range $pages }}
   {{ partial "commons/person" (dict 
     "person" . 
     "show_btn" false 
     ) }}
 {{ end }}
-
