@@ -20,8 +20,16 @@
   {{ end }}
   {{- $pages = slice -}}
   {{- range partial "func/GetPersonsOrderByStatutes" $realPersons -}}
+    {{ $taxonomy := "publications_persons" }}
+    <!-- LEGACY -->
+    {{ with site.Taxonomies.publications_concerned }}
+      {{ $taxonomy = "publications_concerned" }}
+    {{ end }}
+    <!-- / LEGACY -->
     <!-- Reset with section to keep context -->
-    {{- $pages = $pages | append (site.GetPage (printf "/publications_persons/%s" .File.BaseFileName)) -}}
+    {{ with .File }}
+      {{- $pages = $pages | append (site.GetPage (printf "/%s/%s" $taxonomy .BaseFileName)) -}}
+    {{ end }}
   {{- end -}}
 {{- end -}}
 
