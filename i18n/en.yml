@@ -7,7 +7,7 @@ expertises:
   discover_persons: Our {{ .Title }} experts
 persons:
   all: Everyone in the firm
-  discover_occupation: 
+  discover_occupation:
     consonant: Discover the {{ .Occupation }}
     vowel: Discover the {{ .Occupation }}
 persons_places:
@@ -26,8 +26,8 @@ places:
 publications:
   all: All the firm's publications
 realestates:
-  adjudged_with_value: "Sold at {{ .Value }}"
-  pricing_with_value: "Pricing: {{ .Value }}"
+  adjudged_with_value: 'Sold at {{ .Value }}'
+  pricing_with_value: 'Pricing: {{ .Value }}'
 realestates_persons:
   all: All persons in charge
   discover: Discover the person in charge
