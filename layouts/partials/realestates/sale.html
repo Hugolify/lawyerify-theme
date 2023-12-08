@@ -15,12 +15,7 @@
           <div class="seller">
             <p><strong>{{ .Title }}</strong></p>
             {{ with .Params.address }}
-              <address>
-                {{ .street }}<br/>
-                {{ .zipcode }} {{ .city }}<br/>
-                {{ .country }}<br>
-                <a class="direction" href="https://www.google.fr/maps/dir//{{ .street }} {{ .zipcode }} {{ .city }} {{ .country }}" target="_blank">{{ i18n "address.direction" }}</a>
-              </address>
+              {{ partial "commons/address" (dict "address" . "direction" true) }}
             {{ end }}
           </div>
           {{ end }}
