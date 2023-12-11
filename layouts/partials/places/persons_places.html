@@ -1,48 +1,13 @@
-{{ $pages := partial "func/GetTaxonomyPageBySlug" (dict 
+{{- $persons := partial "func/GetTaxonomyPageBySlug" (dict 
   "section" "persons"
   "taxonomy" "persons_places"
-  "slug" .File.BaseFileName) }}
-
-{{ if $pages }}
-
-  {{ $paginator := slice }}
-
-  {{/* Sort by status */}}
-  {{ $taxonomy := "persons_statutes" }}
-  {{ if .Site.GetPage "section" $taxonomy }}
-    {{/* Create slice of maps, where each map contains the page and term weight. */}}
-    {{ $s := slice }}
-    {{ range $pages }}
-      {{ $termWeight := 99999999 }}
-      {{ with (index (.GetTerms $taxonomy) 0).Weight }}
-        {{ $termWeight = . }}
-      {{ end }}
-      {{ $s = $s | append (dict
-          "page" .
-          "termWeight" $termWeight
-        )
-      }}
-    {{ end }}
-
-    {{/* Create a slice of pages, sorted by the term weight. */}}
-    {{ $p := slice }}
-    {{ range (sort $s "termWeight") }}
-      {{ $p = $p | append .page }}
-    {{ end }}
-
-    {{/* Render the page collection. */}}
-    {{ $paginator = $p }}
-  {{ else }}
-    {{ $paginator = $pages }}
-  {{ end }}
-
-  {{ $atf := true }}
-  {{ if partial "func/HasImageHero" . }}
-    {{ $atf = false }}
-  {{ end }}
+  "slug" .File.TranslationBaseName) -}}
+{{- if $persons }}
   <section class="places-persons">
-    <h2>{{ i18n "places.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
-    {{ partial "persons/items" (dict "pages" $paginator "abovethefold" $atf) }}
+    <div class="container">
+      <h2>{{ i18n "places.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
+      {{- $paginator := partial "func/GetPersonsOrderByStatutes" $persons -}}
+      {{ partial "persons/items" (dict "pages" $paginator) }}
+    </div>
   </section>
-
-{{ end }}
+{{ end -}}
