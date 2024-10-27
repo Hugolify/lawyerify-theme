@@ -1,3 +1,35 @@
+admin:
+  collections:
+    persons_places:
+      label: 
+        one: Cabinet
+        other: Cabinets
+    places:
+      _description: Tous les cabinets
+      label: 
+        one: Cabinet
+        other: Cabinets
+    realestates_persons:
+      label:
+        one: Responsable
+        other: Responsables
+    realestates_sellers:
+      _description: Tous les types de vente
+      label:
+        one: Type de vente
+        other: Types de vente
+  fields:
+    places_items: Cabinets
+    place: Cabinet
+    persons_places: Rattaché à un ou plusieurs cabinets ?
+    price:
+      label: Prix de mise en vente
+      sold: Prix adjugé
+    realestates_sellers: Type de vente
+    visits:
+      label: 
+        one: Visite
+        other: Visites
 credit:
   hugolify: un site éco-conçu produit avec <a href="https://www.lawyerify.io" target="_blank" rel="noopener noreferrer" title="« Lawyerify » - lien externe">Lawyerify</a>
 expertises:

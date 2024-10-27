@@ -6,3 +6,13 @@ module:
       target: i18n
     - source: layouts
       target: layouts
+
+params:
+  admin:
+    fields:
+      offer:
+        - is_sold
+        - price
+        - price_sold
+        - visits
+        - date_sale
