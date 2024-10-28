@@ -1,8 +1,1 @@
-{{ $title := i18n "realestates.for_sale_by" (dict "Person" .Title "count" 2) }}
-{{ partial "commons/latest-pages-by-taxonomy" (dict 
-  "section" "realestates" 
-  "taxonomy" "realestates_persons"
-  "limit" 3
-  "title" $title
-  "name" .Title
-  "filename" .File.TranslationBaseName) }}
+{{ partial "persons/realestates-all" . }}
