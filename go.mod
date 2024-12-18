@@ -1,3 +1,3 @@
 module github.com/hugolify/lawyerify-theme
 
-go 1.19
+go 1.21
