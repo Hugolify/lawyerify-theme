@@ -12,6 +12,11 @@ module:
 params:
   admin:
     fields:
+      contact:
+        - email
+        - phone
+        - fax
+        - socials
       offer:
         - is_sold
         - price
