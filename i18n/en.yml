@@ -50,6 +50,7 @@ publications:
   all: All the firm's publications
 realestates:
   adjudged_with_value: 'Sold at {{ .Value }}'
+  auction: Auction
   pricing_with_value: 'Pricing: {{ .Value }}'
 realestates_persons:
   all: All persons in charge

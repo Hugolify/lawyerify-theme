@@ -1,24 +1,22 @@
+{{- $context := . -}}
 {{- $sellers := .Params.realestates_sellers -}}
 {{ with .Params.offer }}
   {{ if or .date_sale $sellers }}
     <div class="sale">
-      <h2>{{ i18n "realestates.sale" 1 }}</h3>
+      <h2>{{ i18n "realestates.auction" }}</h3>
       <div>
         {{ with .date_sale }}
           {{ $date := time . }}
           <p>{{ $date | time.Format ":date_full" }}</time></p>
           <p>{{ i18n "to" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
         {{ end }}
-        {{ with $sellers }}
-          {{ $page := index (where site.Pages "Title" "eq" .) 0 }}
-          {{ with $page }}
+        {{ range $context.GetTerms "realestates_sellers" }}
           <div class="seller">
-            <p><strong>{{ .Title }}</strong></p>
+            <p><strong>{{ partial "func/PrepareHTML" .Title }}</strong></p>
             {{ with .Params.address }}
               {{ partial "commons/address" (dict "address" . "direction" true) }}
             {{ end }}
           </div>
-          {{ end }}
         {{ end }}
       </div>
     </div>

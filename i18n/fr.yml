@@ -56,6 +56,7 @@ places:
 publications:
   all: Toutes les parutions du cabinet
 realestates:
+  auction: Vente aux enchères
   adjudged_with_value: 'Adjugé à {{ .Value }}'
   pricing_with_value: 'Mise à prix : {{ .Value }}'
 realestates_persons:

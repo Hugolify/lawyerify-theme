@@ -5,13 +5,13 @@
       <ul>
       {{ range . }}
         <li>
-          {{ with .from }}
-            {{ $date := time . }}
+          {{ with .date_from }}
+            {{- $date := time . -}}
             <p>{{ $date | time.Format ":date_full" }}</time></p>
             <p>{{ i18n "from" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
           {{ end }}
-          {{ with .to }}
-            {{ $date := time . }}
+          {{ with .date_to }}
+            {{- $date := time . -}}
             {{ i18n "to"| lower }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
           {{ end }}
           </p>
