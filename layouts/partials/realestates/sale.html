@@ -7,7 +7,7 @@
       <div>
         {{ with .date_sale }}
           {{ $date := time . }}
-          <p>{{ $date | time.Format ":date_full" }}</time></p>
+          <p class="date">{{ $date | time.Format ":date_full" }}</p>
           <p>{{ i18n "to" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
         {{ end }}
         {{ range $context.GetTerms "realestates_sellers" }}
