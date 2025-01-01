@@ -1,10 +1,9 @@
 <meta itemprop="availability" content="https://schema.org/OutOfStock">
-{{ $currency := $.Site.Params.currency | default "EUR" }}
-{{ with . }}
-  {{ with .price_sold }}
-    {{ $currency := $.Site.Params.currency | default "EUR" }}
-    {{ $price := partial "func/GetHumanPrice" . }}
+{{- with . }}
+  {{- with .price_sold }}
+    {{- $currency := site.Params.currency | default "EUR" -}}
+    {{- $price := partial "func/GetHumanPrice" . -}}
     <p class="pricing" itemprop="price" content="{{ . }}">{{ i18n "realestates.adjudged_with_value" (dict "Value" $price) }}</p>
     <meta itemprop="priceCurrency" content="{{ $currency }}">
-    {{ end }}
-{{ end }}
+  {{ end -}}
+{{ end -}}

@@ -1,9 +1,9 @@
 <meta itemprop="availability" content="https://schema.org/InStock">
-{{ with . }}
-  {{ with .price }}
-    {{ $currency := $.Site.Params.currency | default "EUR" }}
-    {{ $price := partial "func/GetHumanPrice" . }}
+{{- with . }}
+  {{- with .price }}
+    {{- $currency := site.Params.currency | default "EUR" -}}
+    {{- $price := partial "func/GetHumanPrice" . -}}
     <p class="pricing" itemprop="price" content="{{ . }}">{{ i18n "realestates.pricing_with_value" (dict "Value" $price) }}</p>
     <meta itemprop="priceCurrency" content="{{ $currency }}">
-  {{ end }}
-{{ end }}
+  {{ end -}}
+{{ end -}}

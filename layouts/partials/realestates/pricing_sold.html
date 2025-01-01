@@ -1,6 +1,6 @@
 {{ with .Params.offer }}
   {{ with .price_sold }}
-    {{ $price := partial "func/GetHumanPrice" . }}
+    {{- $price := partial "func/GetHumanPrice" . -}}
     <p class="pricing">{{ i18n "realestates.adjudged_with_value" (dict "Value" $price) }}</p>
   {{ end }}
 {{ end }}

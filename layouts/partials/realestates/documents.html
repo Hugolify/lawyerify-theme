@@ -1,6 +1,5 @@
 {{ with .Params.documents }}
-  {{- $len := . | len -}}
-  {{- $document := i18n "document" $len -}}
+  {{- $document := i18n "document" (. | len) -}}
   <section class="properties_documents" id="{{ $document | urlize }}">
     <h2>{{ $document }}</h2>
     {{ partial "commons/files" . }}

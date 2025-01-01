@@ -1,5 +1,5 @@
-{{ with .Params.address }}
-  {{ if or .location .coordinates }}
+{{- with .Params.address }}
+  {{- if or .location .coordinates }}
     {{- $location := i18n "realestates.location" -}}
     <section class="location" id="{{ $location | urlize }}">
       <h2>{{ $location }}</h2>
@@ -11,9 +11,9 @@
         {{- $coordinates := slice .lat .lng -}}
         {{- $marker = slice (dict "type" "Point" "coordinates" $coordinates) -}}
       {{- end -}}
-      {{ if $marker }}
+      {{- if $marker }}
         {{ partial "commons/map" (dict "location" ($marker | jsonify)) }}
-      {{ end }}
+      {{ end -}}
     </section>
-  {{ end }}
-{{ end }}
+  {{ end -}}
+{{ end -}}
