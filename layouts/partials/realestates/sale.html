@@ -6,9 +6,8 @@
       <h2>{{ i18n "realestates.auction" }}</h3>
       <div>
         {{ with .date_sale }}
-          {{ $date := time . }}
-          <p class="date">{{ $date | time.Format ":date_full" }}</p>
-          <p>{{ i18n "to" }} <time datetime="{{ $date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ $date | time.Format ":time_short" }}</time>
+          <p class="date">{{ . | time.Format ":date_full" }}</p>
+          <p>{{ i18n "to" }} {{ partial "commons/time.html" (dict "date" . "format" ":time_short" "itemprop" false) }}
         {{ end }}
         {{ range $context.GetTerms "realestates_sellers" }}
           <div class="seller">
